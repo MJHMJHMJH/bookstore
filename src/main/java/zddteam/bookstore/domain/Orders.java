@@ -17,7 +17,7 @@ public class Orders implements Serializable {
 
     private Long price;
 
-    private Integer state;
+    private boolean state;
 
     private String userId;
 
@@ -47,11 +47,11 @@ public class Orders implements Serializable {
         this.price = price;
     }
 
-    public Integer getState() {
+    public boolean getState() {
         return state;
     }
 
-    public void setState(Integer state) {
+    public void setState(boolean state) {
         this.state = state;
     }
 

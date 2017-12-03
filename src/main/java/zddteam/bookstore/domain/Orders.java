@@ -1,7 +1,6 @@
 package zddteam.bookstore.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +9,6 @@ import java.util.Date;
 public class Orders implements Serializable {
 
     @Id
-    @GeneratedValue
     private String id;
 
     private Date ordertime;

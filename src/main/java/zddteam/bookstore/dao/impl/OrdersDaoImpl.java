@@ -25,15 +25,15 @@ public class OrdersDaoImpl {
         return ordersRepository.getAllByState(state);
     }
 
-    public List <Orders> getAll(boolean state, String id) {
-        return ordersRepository.getAllByStateAndId(state, id);
+    public List <Orders> getAll(boolean state, String userid) {
+        return ordersRepository.getAllByStateAndUserId(state, userid);
     }
 
-    public List <Orders> getAllOrders(String id) {
-        return ordersRepository.getAllById(id);
+    public List <Orders> getAllOrders(String userid) {
+        return ordersRepository.getAllByUserId(userid);
     }
 
-    public void update(Orders orders) {
-        ordersRepository.update(orders);
+    public void update(boolean state,String ordersId) {
+        ordersRepository.update(state,ordersId);
     }
 }

@@ -6,7 +6,7 @@ import zddteam.bookstore.domain.User;
 import javax.transaction.Transactional;
 
 @Transactional
-public interface UserRepository extends CrudRepository <User, String> {
+public interface UserRepository extends CrudRepository <User, Long> {
     User findByUsername(String username);
     User findByUsernameAndPassword(String username,String password);
 }

@@ -17,7 +17,7 @@ public class Orders implements Serializable {
 
     private boolean state;
 
-    private String userId;
+    private Long userId;
 
     private static final long serialVersionUID = 1L;
 
@@ -53,12 +53,12 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override

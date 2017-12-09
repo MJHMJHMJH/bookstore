@@ -26,7 +26,7 @@ CREATE TABLE `bookmanager`.`book` (
     ON UPDATE NO ACTION);
 ##user
     CREATE TABLE `bookmanager`.`user` (
-  `id` VARCHAR(40) NOT NULL,
+  `id` INT(11) NOT NULL,
   `username` VARCHAR(40) NOT NULL,
   `password` VARCHAR(40) NOT NULL,
   `phone` VARCHAR(40) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `bookmanager`.`book` (
   `ordertime` DATETIME NOT NULL,
   `price` DECIMAL(10) NOT NULL,
   `state` INT(1) NULL,
-  `user_id` VARCHAR(40) NULL,
+  `user_id` INT(11) NULL,
   PRIMARY KEY (`id`),
   INDEX `user_id_FK_idx` (`user_id` ASC),
   CONSTRAINT `user_id_FK`

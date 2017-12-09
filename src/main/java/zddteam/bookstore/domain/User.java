@@ -1,6 +1,7 @@
 package zddteam.bookstore.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -8,7 +9,8 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    private String id;
+    @GeneratedValue
+    private Long id;
 
     private String username;
 
@@ -22,12 +24,12 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {

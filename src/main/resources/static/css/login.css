@@ -1,0 +1,25 @@
+body{
+    background: url("../images/loginStyle.jpg");
+    background-repeat: no-repeat;
+    background-size: 1920px 1030px;
+}
+
+.login1{
+    width: 522px;
+    height: 301px;
+    box-shadow: none;
+    background: #ffffff;
+    visibility: visible;
+    top: 46px;
+    border: 1px #a7b3bf;
+    border-style: solid;
+    padding: 20px;
+    margin-left: 444px;
+    margin-top: 226px;
+}
+
+.lo{
+    text-align: center;
+    font-size: larger;
+    font-family: 黑体, serif;
+}

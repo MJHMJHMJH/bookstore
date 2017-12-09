@@ -73,13 +73,13 @@ public class TestDaoImpl {
         orders.setOrdertime(new Date());
         orders.setPrice(33L);
         orders.setState(false);
-        orders.setUserId("100001");
+        orders.setUserId(100001L);
         Orders orders1 = new Orders();
         orders1.setId("B0001");
         orders1.setOrdertime(new Date());
         orders1.setPrice(33L);
         orders1.setState(true);
-        orders1.setUserId("100001");
+        orders1.setUserId(100001L);
 //        ordersDao.add(orders);
         System.out.println(ordersDao.find("B0001"));
         System.out.println("-----------------------------------");

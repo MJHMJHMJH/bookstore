@@ -3,6 +3,7 @@ package zddteam.bookstore.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
+import zddteam.bookstore.dao.OrderitemRepository;
 import zddteam.bookstore.dao.impl.BookDaoImpl;
 import zddteam.bookstore.dao.impl.CategoryDaoImpl;
 import zddteam.bookstore.dao.impl.OrdersDaoImpl;
@@ -14,7 +15,6 @@ import zddteam.bookstore.util.OrderUtil;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @Component
 public class BusinessServiceImpl implements BusinessService {
@@ -27,6 +27,8 @@ public class BusinessServiceImpl implements BusinessService {
     private UserDaoImpl userDao;
     @Autowired
     private OrdersDaoImpl ordersDao;
+    @Autowired
+    private OrderitemRepository orderitemRepository;
 
     private final int pageSize = 5;
 
@@ -49,20 +51,24 @@ public class BusinessServiceImpl implements BusinessService {
         bookDao.addBook(book);
     }
 
-    public Book findBook(String name) {
-        return bookDao.findBook(name);
+    public Book findBookByName(String name) {
+        return bookDao.findBookByName(name);
+    }
+
+    public Book findBook(String id) {
+        return bookDao.findBook(id);
     }
 
     /**
      * @param pagenum 图书页码
      * @return 图书分页
      */
-    public Page getBookPageData(int pagenum) {
-        return bookDao.getPageData(pagenum, pageSize);
+    public List<Book> getBookPageData(int pagenum) {
+        return bookDao.getPageData(pagenum, pageSize).getContent();
     }
 
-    public Page getBookPageData(int pagenum, String category_id) {
-        return bookDao.getPageDataByCategoryId(pagenum, pageSize, category_id);
+    public List<Book> getBookPageData(int pagenum, String category_id) {
+        return bookDao.getPageDataByCategoryId(pagenum, pageSize, category_id).getContent();
     }
 
     public void buyBook(Cart cart, Book book) {
@@ -73,12 +79,16 @@ public class BusinessServiceImpl implements BusinessService {
         userDao.addUser(user);
     }
 
+    public User findUserById(Long id){
+        return userDao.findUserById(id);
+    }
+
     public User findUser(String name) {
         return userDao.findUser(name);
     }
 
     public User userLogin(String username, String password) {
-        return userDao.findUser(username, password);
+        return findUser(username) != null ? userDao.findUser(username, password) : null;
     }
 
     public void createOrder(Cart cart, User user) {
@@ -123,5 +133,9 @@ public class BusinessServiceImpl implements BusinessService {
 
     public List<Orders> clientListOrder(String userid){
         return ordersDao.getAllOrders(userid);
+    }
+
+    public Orderitem findOrderitemByOrderId(String orderid){
+        return orderitemRepository.findOrderitemByOrderId(orderid);
     }
 }

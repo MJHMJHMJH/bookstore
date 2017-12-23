@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>图书列表</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body class="container">
+<h1>图书信息</h1>
+<br/><br/>
+<div class="with:80%">
+    <p>共<span th:text="${maxpage}">Na</span>页,当前第<span th:text="${pagenum}">Na</span>页
+        <a href="#" th:href="@{/manager/list?page=0}">上一页</a>
+        <a href="#" th:href="@{/manager/list?page=1}">下一页</a>
+    </p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>图书名称</td>
+            <td>作者</td>
+            <td>价格</td>
+            <td>图片</td>
+            <td>描述</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="books:${books}">
+            <td th:text="${books.name}">暂无</td>
+            <td th:text="${books.author}">暂无</td>
+            <td th:text="${books.price}+.00元">暂无</td>
+            <td th:text="${books.image}">暂无</td>
+            <td th:text="${books.description}">暂无</td>
+            <td th:text="${books.categoryId}">暂无</td>
+            <td>
+                <a href="#" th:href="@{/manager/toEditBook(id=${books.id})}">修改</a>
+                <a href="#">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#" th:href="@{/manager/doAddBook}">添加图书</a>
+</div>
+</body>
+</html>

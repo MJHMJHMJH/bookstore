@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改图书分类</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body class="container">
+<h1>修改图书分类</h1>
+<br/><br/>
+<div class="with:80%">
+    <form class="form-horizontal" action="#" th:action="@{/manager/editCategory}" th:object="${category}" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="id" th:value="*{id}"/>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">分类名称</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" id="name" th:value="*{name}"
+                       placeholder="分类名称"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">分类描述</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="description" id="description" th:value="*{description}"
+                       placeholder="分类描述"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="修改" class="btn btn-info"/>
+                &nbsp; &nbsp; &nbsp;
+                <a href="#" th:href="@{/manager/categoryList}" class="btn btn-info">返回</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

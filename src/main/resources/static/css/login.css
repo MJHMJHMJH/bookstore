@@ -1,6 +1,5 @@
 body{
-    background: url("../images/loginStyle.jpg");
-    background-repeat: no-repeat;
+    background: url("/images/loginStyle.jpg") no-repeat;
     background-size: 1920px 1030px;
 }
 
@@ -11,8 +10,7 @@ body{
     background: #ffffff;
     visibility: visible;
     top: 46px;
-    border: 1px #a7b3bf;
-    border-style: solid;
+    border: 1px solid #a7b3bf;
     padding: 20px;
     margin-left: 444px;
     margin-top: 226px;

@@ -22,4 +22,8 @@ public class UserDaoImpl {
     public User findUser(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);
     }
+
+    public User findUserById(Long id){
+        return userRepository.findOne(id);
+    }
 }

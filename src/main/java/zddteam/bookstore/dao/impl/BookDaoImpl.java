@@ -19,8 +19,12 @@ public class BookDaoImpl {
         bookRepository.save(book);
     }
 
-    public Book findBook(String name) {
+    public Book findBookByName(String name) {
         return bookRepository.findByName(name);
+    }
+
+    public Book findBook(String id) {
+        return bookRepository.findOne(id);
     }
 
     public Page <Book> getPageData(int pageNumber, int pageSize) {
